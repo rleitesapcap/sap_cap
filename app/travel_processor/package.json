@@ -1,0 +1,54 @@
+{
+  "name": "sap.fe.cap.travel",
+  "private": true,
+  "main": "webapp/index.html",
+  "engines": {
+    "node": ">=14",
+    "npm": ">=7"
+  },
+  "scripts": {
+    "test": "npm run test:node && npm run test:java",
+    "test:java": "karma start --server=java",
+    "test:node": "karma start --server=node",
+    "start_old": "ui5 serve",
+    "build_old": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateManifestBundle generateCachebusterInfo",
+    "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#Travel-manage\"",
+    "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#Travel-manage\"",
+    "start-noflp": "fiori run --open \"index.html?sap-ui-xx-viewCache=false\"",
+    "start-variants-management": "fiori run --open \"preview.html?sap-ui-xx-viewCache=false&fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true#preview-app\"",
+    "build": "ui5 build -a --clean-dest --include-task=generateCachebusterInfo",
+    "deploy": "fiori verify",
+    "deploy-config": "fiori add deploy-config",
+    "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#Travel-manage\"",
+    "suite-tests": "fiori run --open 'test/testsuite.qunit.html'"
+  },
+  "keywords": [
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "devDependencies": {
+    "cross-spawn": "^7.0.3",
+    "http-proxy": "^1.18.1",
+    "karma": "^6.3.14",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-ui5": "^2.4.0",
+    "puppeteer": "^15.1.1",
+    "ui5-middleware-simpleproxy": "^0.9.0",
+    "ui5-task-zipper": "^0.5.0",
+    "@ui5/cli": "^3.0.0",
+    "@sap/ux-ui5-tooling": "1",
+    "rimraf": "3.0.2",
+    "@sap-ux/ui5-middleware-fe-mockserver": "2"
+  },
+  "ui5": {
+    "dependencies": [
+      "ui5-task-zipper",
+      "ui5-middleware-simpleproxy"
+    ]
+  },
+  "version": "0.0.1",
+  "sapux": true,
+  "sapuxLayer": "CUSTOMER_BASE",
+  "description": ""
+}
