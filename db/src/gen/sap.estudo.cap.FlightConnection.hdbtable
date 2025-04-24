@@ -1,0 +1,15 @@
+COLUMN TABLE sap_estudo_cap_FlightConnection (
+  ConnectionID NVARCHAR(4) NOT NULL,
+  AirlineID NVARCHAR(3) NOT NULL,
+  DepartureAirport_AirportID NVARCHAR(3),
+  DestinationAirport_AirportID NVARCHAR(3),
+  DepartureTime TIME,
+  ArrivalTime TIME,
+  "DISTANCE" INTEGER,
+  DistanceUnit NVARCHAR(3),
+  PRIMARY KEY(ConnectionID, AirlineID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_estudo_cap_Airport AS DepartureAirport ON (DepartureAirport.AirportID = DepartureAirport_AirportID),
+  MANY TO ONE JOIN sap_estudo_cap_Airport AS DestinationAirport ON (DestinationAirport.AirportID = DestinationAirport_AirportID),
+  MANY TO ONE JOIN sap_estudo_cap_Airline AS to_Airline ON (to_Airline.AirlineID = AirlineID)
+)

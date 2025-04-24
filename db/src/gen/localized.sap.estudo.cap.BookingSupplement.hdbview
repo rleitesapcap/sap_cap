@@ -1,0 +1,21 @@
+VIEW localized_sap_estudo_cap_BookingSupplement AS SELECT
+  L.createdAt,
+  L.createdBy,
+  L.LastChangedAt,
+  L.LastChangedBy,
+  L.BookSupplUUID,
+  L.BookingSupplementID,
+  L.Price,
+  L.DeliveryPreference_code,
+  L.CurrencyCode_code,
+  L.to_Booking_BookingUUID,
+  L.to_Travel_TravelUUID,
+  L.to_Supplement_SupplementID
+FROM sap_estudo_cap_BookingSupplement AS L
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_sap_estudo_cap_MealOptionDeliveryPreference AS DeliveryPreference ON (DeliveryPreference.code = DeliveryPreference_code),
+  MANY TO ONE JOIN localized_sap_common_Currencies AS CurrencyCode ON (CurrencyCode.code = CurrencyCode_code),
+  MANY TO ONE JOIN localized_sap_estudo_cap_Booking AS to_Booking ON (to_Booking.BookingUUID = to_Booking_BookingUUID),
+  MANY TO ONE JOIN localized_sap_estudo_cap_Travel AS to_Travel ON (to_Travel.TravelUUID = to_Travel_TravelUUID),
+  MANY TO ONE JOIN localized_sap_estudo_cap_Supplement AS to_Supplement ON (to_Supplement.SupplementID = to_Supplement_SupplementID)
+)

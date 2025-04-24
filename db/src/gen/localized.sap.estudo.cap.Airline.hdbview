@@ -1,0 +1,10 @@
+VIEW localized_sap_estudo_cap_Airline AS SELECT
+  L.ID,
+  L.AirlineID,
+  L.Name,
+  L.CurrencyCode_code,
+  L.AirlinePicURL
+FROM sap_estudo_cap_Airline AS L
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_sap_common_Currencies AS CurrencyCode ON (CurrencyCode.code = CurrencyCode_code)
+)

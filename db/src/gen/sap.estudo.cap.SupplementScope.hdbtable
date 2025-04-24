@@ -1,0 +1,7 @@
+COLUMN TABLE sap_estudo_cap_SupplementScope (
+  MinimumValue INTEGER,
+  MaximumValue INTEGER,
+  TargetValue INTEGER,
+  DeviationRangeLowValue INTEGER,
+  ToleranceRangeLowValue INTEGER
+)

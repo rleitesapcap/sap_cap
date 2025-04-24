@@ -1,0 +1,30 @@
+VIEW TravelService_Travel AS SELECT
+  Travel_0.createdAt,
+  Travel_0.createdBy,
+  Travel_0.LastChangedAt,
+  Travel_0.LastChangedBy,
+  Travel_0.TravelUUID,
+  Travel_0.TravelID,
+  Travel_0.BeginDate,
+  Travel_0.EndDate,
+  Travel_0.BookingFee,
+  Travel_0.TotalPrice,
+  Travel_0.CurrencyCode_code,
+  Travel_0.Progress,
+  Travel_0.Description,
+  Travel_0.TravelStatus_code,
+  Travel_0.to_Agency_AgencyID,
+  Travel_0.to_Customer_CustomerID,
+  to_Customer_3.FirstName || ' ' || to_Customer_3.LastName AS CustomerFullName,
+  to_Agency_2.Name AS AgencyName,
+  CountryCode_4.name AS PassengerCountryName,
+  CountryCode_4.code AS PassengerCountry,
+  TravelStatus_1.name AS TravelStatusName
+FROM ((((sap_estudo_cap_Travel AS Travel_0 LEFT JOIN sap_estudo_cap_TravelStatus AS TravelStatus_1 ON Travel_0.TravelStatus_code = TravelStatus_1.code) LEFT JOIN sap_estudo_cap_TravelAgency AS to_Agency_2 ON Travel_0.to_Agency_AgencyID = to_Agency_2.AgencyID) LEFT JOIN sap_estudo_cap_Passenger AS to_Customer_3 ON Travel_0.to_Customer_CustomerID = to_Customer_3.CustomerID) LEFT JOIN sap_common_Countries AS CountryCode_4 ON to_Customer_3.CountryCode_code = CountryCode_4.code)
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN TravelService_Currencies AS CurrencyCode ON (CurrencyCode.code = CurrencyCode_code),
+  MANY TO ONE JOIN TravelService_TravelStatus AS TravelStatus ON (TravelStatus.code = TravelStatus_code),
+  MANY TO ONE JOIN TravelService_TravelAgency AS to_Agency ON (to_Agency.AgencyID = to_Agency_AgencyID),
+  MANY TO ONE JOIN TravelService_Passenger AS to_Customer ON (to_Customer.CustomerID = to_Customer_CustomerID),
+  MANY TO MANY JOIN TravelService_Booking AS to_Booking ON (to_Booking.to_Travel_TravelUUID = TravelUUID)
+)

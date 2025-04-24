@@ -1,0 +1,41 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SAP_ESTUDO_CAP_FLIGHT",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "sap.estudo.cap-Flight.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ";"
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "ID",
+          "AIRLINEID",
+          "CONNECTIONID",
+          "FLIGHTDATE",
+          "PRICE",
+          "CURRENCYCODE_CODE",
+          "PLANETYPE",
+          "MAXIMUMSEATS",
+          "OCCUPIEDSEATS"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "ID": "ID",
+        "AIRLINEID": "AirlineID",
+        "CONNECTIONID": "ConnectionID",
+        "FLIGHTDATE": "FlightDate",
+        "PRICE": "Price",
+        "CURRENCYCODE_CODE": "CurrencyCode_code",
+        "PLANETYPE": "PlaneType",
+        "MAXIMUMSEATS": "MaximumSeats",
+        "OCCUPIEDSEATS": "OccupiedSeats"
+      }
+    }
+  ]
+}

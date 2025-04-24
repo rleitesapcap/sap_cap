@@ -1,0 +1,21 @@
+COLUMN TABLE sap_estudo_cap_BookingSupplement (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  LastChangedAt TIMESTAMP,
+  LastChangedBy NVARCHAR(255),
+  BookSupplUUID NVARCHAR(36) NOT NULL,
+  BookingSupplementID INTEGER,
+  Price DECIMAL(16, 3),
+  DeliveryPreference_code NVARCHAR(5000) DEFAULT 'M',
+  CurrencyCode_code NVARCHAR(3),
+  to_Booking_BookingUUID NVARCHAR(36),
+  to_Travel_TravelUUID NVARCHAR(36),
+  to_Supplement_SupplementID NVARCHAR(10),
+  PRIMARY KEY(BookSupplUUID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_estudo_cap_MealOptionDeliveryPreference AS DeliveryPreference ON (DeliveryPreference.code = DeliveryPreference_code),
+  MANY TO ONE JOIN sap_common_Currencies AS CurrencyCode ON (CurrencyCode.code = CurrencyCode_code),
+  MANY TO ONE JOIN sap_estudo_cap_Booking AS to_Booking ON (to_Booking.BookingUUID = to_Booking_BookingUUID),
+  MANY TO ONE JOIN sap_estudo_cap_Travel AS to_Travel ON (to_Travel.TravelUUID = to_Travel_TravelUUID),
+  MANY TO ONE JOIN sap_estudo_cap_Supplement AS to_Supplement ON (to_Supplement.SupplementID = to_Supplement_SupplementID)
+)

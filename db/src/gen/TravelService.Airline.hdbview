@@ -1,0 +1,10 @@
+VIEW TravelService_Airline AS SELECT
+  Airline_0.ID,
+  Airline_0.AirlineID,
+  Airline_0.Name,
+  Airline_0.CurrencyCode_code,
+  Airline_0.AirlinePicURL
+FROM sap_estudo_cap_Airline AS Airline_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN TravelService_Currencies AS CurrencyCode ON (CurrencyCode.code = CurrencyCode_code)
+)

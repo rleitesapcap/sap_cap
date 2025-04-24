@@ -1,0 +1,9 @@
+VIEW TravelService_MealOptionDeliveryPreference AS SELECT
+  MealOptionDeliveryPreference_0.name,
+  MealOptionDeliveryPreference_0.descr,
+  MealOptionDeliveryPreference_0.code
+FROM sap_estudo_cap_MealOptionDeliveryPreference AS MealOptionDeliveryPreference_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN TravelService_MealOptionDeliveryPreference_texts AS texts ON (texts.code = code),
+  MANY TO ONE JOIN TravelService_MealOptionDeliveryPreference_texts AS localized ON (localized.code = code AND localized.locale = SESSION_CONTEXT('LOCALE'))
+)

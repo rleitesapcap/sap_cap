@@ -1,0 +1,55 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SAP_ESTUDO_CAP_BOOKING",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "sap.estudo.cap-Booking.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "CREATEDAT",
+          "CREATEDBY",
+          "LASTCHANGEDAT",
+          "LASTCHANGEDBY",
+          "BOOKINGUUID",
+          "BOOKINGID",
+          "BOOKINGDATE",
+          "CONNECTIONID",
+          "FLIGHTDATE",
+          "FLIGHTPRICE",
+          "CURRENCYCODE_CODE",
+          "TOTALSUPPLPRICE",
+          "BOOKINGSTATUS_CODE",
+          "TO_CARRIER_AIRLINEID",
+          "TO_CUSTOMER_CUSTOMERID",
+          "TO_TRAVEL_TRAVELUUID"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "CREATEDAT": "createdAt",
+        "CREATEDBY": "createdBy",
+        "LASTCHANGEDAT": "LastChangedAt",
+        "LASTCHANGEDBY": "LastChangedBy",
+        "BOOKINGUUID": "BookingUUID",
+        "BOOKINGID": "BookingID",
+        "BOOKINGDATE": "BookingDate",
+        "CONNECTIONID": "ConnectionID",
+        "FLIGHTDATE": "FlightDate",
+        "FLIGHTPRICE": "FlightPrice",
+        "CURRENCYCODE_CODE": "CurrencyCode_code",
+        "TOTALSUPPLPRICE": "TotalSupplPrice",
+        "BOOKINGSTATUS_CODE": "BookingStatus_code",
+        "TO_CARRIER_AIRLINEID": "to_Carrier_AirlineID",
+        "TO_CUSTOMER_CUSTOMERID": "to_Customer_CustomerID",
+        "TO_TRAVEL_TRAVELUUID": "to_Travel_TravelUUID"
+      }
+    }
+  ]
+}

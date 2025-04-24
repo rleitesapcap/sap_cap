@@ -1,0 +1,10 @@
+COLUMN TABLE sap_estudo_cap_Airline (
+  ID NVARCHAR(36),
+  AirlineID NVARCHAR(3) NOT NULL,
+  Name NVARCHAR(40),
+  CurrencyCode_code NVARCHAR(3),
+  AirlinePicURL NVARCHAR(5000),
+  PRIMARY KEY(AirlineID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN sap_common_Currencies AS CurrencyCode ON (CurrencyCode.code = CurrencyCode_code)
+)

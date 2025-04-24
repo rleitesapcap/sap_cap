@@ -1,0 +1,55 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SAP_ESTUDO_CAP_TRAVEL",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "sap.estudo.cap-Travel.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "CREATEDAT",
+          "CREATEDBY",
+          "LASTCHANGEDAT",
+          "LASTCHANGEDBY",
+          "TRAVELUUID",
+          "TRAVELID",
+          "BEGINDATE",
+          "ENDDATE",
+          "BOOKINGFEE",
+          "TOTALPRICE",
+          "CURRENCYCODE_CODE",
+          "PROGRESS",
+          "DESCRIPTION",
+          "TRAVELSTATUS_CODE",
+          "TO_AGENCY_AGENCYID",
+          "TO_CUSTOMER_CUSTOMERID"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "CREATEDAT": "createdAt",
+        "CREATEDBY": "createdBy",
+        "LASTCHANGEDAT": "LastChangedAt",
+        "LASTCHANGEDBY": "LastChangedBy",
+        "TRAVELUUID": "TravelUUID",
+        "TRAVELID": "TravelID",
+        "BEGINDATE": "BeginDate",
+        "ENDDATE": "EndDate",
+        "BOOKINGFEE": "BookingFee",
+        "TOTALPRICE": "TotalPrice",
+        "CURRENCYCODE_CODE": "CurrencyCode_code",
+        "PROGRESS": "Progress",
+        "DESCRIPTION": "Description",
+        "TRAVELSTATUS_CODE": "TravelStatus_code",
+        "TO_AGENCY_AGENCYID": "to_Agency_AgencyID",
+        "TO_CUSTOMER_CUSTOMERID": "to_Customer_CustomerID"
+      }
+    }
+  ]
+}

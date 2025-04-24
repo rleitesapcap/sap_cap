@@ -1,0 +1,5 @@
+VIEW TravelService_Supplement_texts AS SELECT
+  texts_0.locale,
+  texts_0.SupplementID,
+  texts_0.Description
+FROM sap_estudo_cap_Supplement_texts AS texts_0

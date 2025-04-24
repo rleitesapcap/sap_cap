@@ -1,0 +1,6 @@
+COLUMN TABLE sap_estudo_cap_Supplement_texts (
+  locale NVARCHAR(14) NOT NULL,
+  SupplementID NVARCHAR(10) NOT NULL,
+  Description NVARCHAR(1024),
+  PRIMARY KEY(locale, SupplementID)
+)

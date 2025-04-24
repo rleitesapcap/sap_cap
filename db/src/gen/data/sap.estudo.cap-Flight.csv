@@ -1,0 +1,2 @@
+ID;AirlineID;ConnectionID;FlightDate;Price;CurrencyCode_code;PlaneType;MaximumSeats;OccupiedSeats
+b5a9e4fe-7dec-11ee-b962-0242ac120002;SW;0001;2022-07-13;10818.00;SGD;767-200;260;223

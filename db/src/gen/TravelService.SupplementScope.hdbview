@@ -1,0 +1,7 @@
+VIEW TravelService_SupplementScope AS SELECT
+  SupplementScope_0.MinimumValue,
+  SupplementScope_0.MaximumValue,
+  SupplementScope_0.TargetValue,
+  SupplementScope_0.DeviationRangeLowValue,
+  SupplementScope_0.ToleranceRangeLowValue
+FROM sap_estudo_cap_SupplementScope AS SupplementScope_0

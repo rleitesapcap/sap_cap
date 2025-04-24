@@ -1,0 +1,14 @@
+VIEW localized_sap_estudo_cap_TravelAgency AS SELECT
+  L.AgencyID,
+  L.Name,
+  L.Street,
+  L.PostalCode,
+  L.City,
+  L.CountryCode_code,
+  L.PhoneNumber,
+  L.EMailAddress,
+  L.WebAddress
+FROM sap_estudo_cap_TravelAgency AS L
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_sap_common_Countries AS CountryCode ON (CountryCode.code = CountryCode_code)
+)

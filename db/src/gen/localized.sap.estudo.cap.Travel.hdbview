@@ -1,0 +1,25 @@
+VIEW localized_sap_estudo_cap_Travel AS SELECT
+  L.createdAt,
+  L.createdBy,
+  L.LastChangedAt,
+  L.LastChangedBy,
+  L.TravelUUID,
+  L.TravelID,
+  L.BeginDate,
+  L.EndDate,
+  L.BookingFee,
+  L.TotalPrice,
+  L.CurrencyCode_code,
+  L.Progress,
+  L.Description,
+  L.TravelStatus_code,
+  L.to_Agency_AgencyID,
+  L.to_Customer_CustomerID
+FROM sap_estudo_cap_Travel AS L
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_sap_common_Currencies AS CurrencyCode ON (CurrencyCode.code = CurrencyCode_code),
+  MANY TO ONE JOIN localized_sap_estudo_cap_TravelStatus AS TravelStatus ON (TravelStatus.code = TravelStatus_code),
+  MANY TO ONE JOIN localized_sap_estudo_cap_TravelAgency AS to_Agency ON (to_Agency.AgencyID = to_Agency_AgencyID),
+  MANY TO ONE JOIN localized_sap_estudo_cap_Passenger AS to_Customer ON (to_Customer.CustomerID = to_Customer_CustomerID),
+  MANY TO MANY JOIN localized_sap_estudo_cap_Booking AS to_Booking ON (to_Booking.to_Travel_TravelUUID = TravelUUID)
+)

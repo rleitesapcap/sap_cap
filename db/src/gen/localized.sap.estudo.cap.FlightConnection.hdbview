@@ -1,0 +1,15 @@
+VIEW localized_sap_estudo_cap_FlightConnection AS SELECT
+  L.ConnectionID,
+  L.AirlineID,
+  L.DepartureAirport_AirportID,
+  L.DestinationAirport_AirportID,
+  L.DepartureTime,
+  L.ArrivalTime,
+  L."DISTANCE",
+  L.DistanceUnit
+FROM sap_estudo_cap_FlightConnection AS L
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN localized_sap_estudo_cap_Airport AS DepartureAirport ON (DepartureAirport.AirportID = DepartureAirport_AirportID),
+  MANY TO ONE JOIN localized_sap_estudo_cap_Airport AS DestinationAirport ON (DestinationAirport.AirportID = DestinationAirport_AirportID),
+  MANY TO ONE JOIN localized_sap_estudo_cap_Airline AS to_Airline ON (to_Airline.AirlineID = AirlineID)
+)
