@@ -1,0 +1,10 @@
+applications:
+- name: MonitorApp
+  path: gen/srv
+  memory: 256M
+  buildpacks:
+    - nodejs_buildpack
+  env:
+    NODE_ENV: production
+services:
+    - monitor-hana-db
