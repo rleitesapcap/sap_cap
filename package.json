@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@sap/cds": "^8",
+    "@sap/cds-common-content": "^2.1.0",
     "@sap/xssec": "^3.2.7",
     "express": "^4",
     "hdb": "^0.19.1",
@@ -40,9 +41,9 @@
   },
   "cds": {
     "requires": {
-      "db": {
-        "kind": "sql"
-      },
+      "db": "hana",
+      "auth": "mocked",
+      "multitenancy": false,
       "[production]": {
         "db": {
           "kind": "hana-cloud"

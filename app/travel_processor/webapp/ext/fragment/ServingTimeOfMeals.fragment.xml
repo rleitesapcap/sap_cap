@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
-    <SegmentedButton core:require="{handler: 'sap/fe/cap/travel/ext/fragment/ServingTimeOfMeals'}" id="SB1" 
+    <SegmentedButton core:require="{handler: 'sap/estudo/cap/ext/fragment/ServingTimeOfMeals'}" id="SB1" 
         selectionChange="handler.onSelectionChange" 
         enabled="{ui>/isEditable}"
         selectedKey="{= ${DeliveryPreference_code}}">

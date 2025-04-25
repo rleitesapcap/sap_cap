@@ -1,12 +1,12 @@
 {
     "_version": "1.32.0",
     "sap.app": {
-        "id": "sap.fe.cap.travel",
+        "id": "sap.estudo.cap",
         "type": "application",
         "title": "{{title}}",
         "description": "{{description}}",
         "i18n": {
-            "bundleName": "sap.fe.cap.travel.i18n.i18n",
+            "bundleName": "sap.estudo.cap.i18n.i18n",
             "supportedLocales": [
                 "en",
                 "de",
@@ -84,7 +84,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "sap.fe.cap.travel.i18n.i18n",
+                    "bundleName": "sap.estudo.cap.i18n.i18n",
                     "supportedLocales": [
                         "en",
                         "de",

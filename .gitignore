@@ -2,3 +2,6 @@ node_modules
 app/travel_processor/package-lock.json
 db/src/gen/*
 app/travel_processor/webapp/test/*
+
+# added by cds
+.cdsrc-private.json
